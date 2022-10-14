@@ -1,57 +1,51 @@
 {
-    "name": "template-react-material-ui",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@emotion/react": "^11.4.1",
-        "@emotion/styled": "^11.3.0",
-        "@mui/icons-material": "^5.0.1",
-        "@mui/lab": "^5.0.0-alpha.49",
-        "@mui/material": "^5.0.2",
-        "@mui/styles": "^5.0.1",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
-        "@testing-library/user-event": "^7.2.1",
-        "axios": "^1.1.2",
-        "dayjs": "^1.11.5",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-scripts": "4.0.3"
-    },
-    "scripts": {
-        "start": "react-app-rewired start",
-        "build": "react-app-rewired build",
-        "test": "react-app-rewired test",
-        "eject": "react-scripts eject",
-        "lint": "eslint ."
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "babel-eslint": "^10.1.0",
-        "customize-cra": "^1.0.0",
-        "eslint-config-airbnb": "^18.2.1",
-        "eslint-config-prettier": "^6.15.0",
-        "eslint-plugin-import": "^2.24.2",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^3.4.1",
-        "eslint-plugin-react": "^7.26.1",
-        "husky": "^4.3.8",
-        "lint-staged": "^10.5.4",
-        "prettier": "^2.4.1",
-        "react-app-rewired": "^2.1.8"
-    }
+	"name": "your_app_name",
+	"description": "A quickstart nodejs app with dotenv, mongodb(mongoose), automatic linting using husky, eslint and prettier inetgration.",
+	"version": "0.0.8",
+	"private": false,
+	"license": "Apache-2.0",
+	"type": "module",
+	"scripts": {
+		"precommit": "lint-staged",
+		"start": "node ./bin/www",
+		"watch:dev": "nodemon node ./bin/www",
+		"test": "APP_ENV=development mocha --exit --timeout 10000",
+		"release:patch": "yarn version --patch",
+		"release:minor": "yarn version --minor",
+		"release:major": "yarn version --major",
+		"preversion": "yarn test && git add . && git commit -u",
+		"postversion": "git push"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn precommit"
+		}
+	},
+	"dependencies": {
+		"body-parser": "^1.20.1",
+		"cookie-parser": "~1.4.4",
+		"cors": "^2.8.5",
+		"debug": "~2.6.9",
+		"dotenv": "^8.2.0",
+		"express": "~4.16.1",
+		"mongoose": "^5.9.13",
+		"morgan": "~1.9.1",
+		"multer": "^1.4.5-lts.1",
+		"shortid": "^2.2.15",
+		"swagger-ui-express": "^4.1.4",
+		"yamljs": "^0.3.0"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"chai-http": "^4.3.0",
+		"eslint": "^7.0.0",
+		"eslint-config-airbnb-base": "^14.1.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.20.2",
+		"eslint-plugin-prettier": "^3.1.3",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.2",
+		"mocha": "^7.1.2",
+		"prettier": "^2.0.5"
+	}
 }
